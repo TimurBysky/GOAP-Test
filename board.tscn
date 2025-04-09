@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://m6f0waa737k6"]
+
+[sub_resource type="Environment" id="Environment_4mug4"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_4mug4"]
+vertices = PackedVector3Array(-4.6528, -0.00226182, -3.69931, -4.6528, -0.00226182, 3.55069, 4.5972, -0.00226182, 3.55069, 4.5972, -0.00226182, -3.69931)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[node name="Board" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4mug4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.813223, 0.581953, 0, -0.581953, 0.813223, 0, 10.0657, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_4mug4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, -0.0204298, -0.444824, -0.0188646)
+size = Vector3(10.2647, 0.110352, 8.36084)
