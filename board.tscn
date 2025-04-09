@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://m6f0waa737k6"]
+[gd_scene load_steps=6 format=3 uid="uid://m6f0waa737k6"]
+
+[ext_resource type="PackedScene" uid="uid://cftfy8gabmxwd" path="res://simple_agent.tscn" id="1_p0ybc"]
+[ext_resource type="Script" uid="uid://cemkucpr8o5tr" path="res://navigation_manager.gd" id="2_8l818"]
+[ext_resource type="Script" uid="uid://w2ovhjl15ijx" path="res://camera_3d.gd" id="3_jqgjh"]
 
 [sub_resource type="Environment" id="Environment_4mug4"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4mug4"]
-vertices = PackedVector3Array(-4.6528, -0.00226182, -3.69931, -4.6528, -0.00226182, 3.55069, 4.5972, -0.00226182, 3.55069, 4.5972, -0.00226182, -3.69931)
+vertices = PackedVector3Array(-4.6528, -0.00346345, -5.92026, -4.6528, -0.00346345, 3.57974, 11.0972, -0.00346345, 3.57974, 11.0972, -0.00346345, -5.92026)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="Board" type="Node3D"]
@@ -18,5 +22,15 @@ transform = Transform3D(1, 0, 0, 0, 0.813223, 0.581953, 0, -0.581953, 0.813223, 
 navigation_mesh = SubResource("NavigationMesh_4mug4")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, -0.0204298, -0.444824, -0.0188646)
-size = Vector3(10.2647, 0.110352, 8.36084)
+transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, 3.2232, -0.445425, -1.12934)
+size = Vector3(16.752, 0.110352, 10.5818)
+
+[node name="agent" parent="." instance=ExtResource("1_p0ybc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76084, 2.52645)
+
+[node name="NavigationManager" type="Node3D" parent="."]
+script = ExtResource("2_8l818")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.192439, 0.195343, -0.96167, 0.0281027, 0.978488, 0.204383, 0.980907, -0.0663567, 0.18281, -8.25271, 8.45019, 2.81912)
+script = ExtResource("3_jqgjh")
