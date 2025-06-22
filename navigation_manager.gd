@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 
 		if collision.has("position"):
 			set_character_movement_target(collision.get("position"))
-			
+			print("collision")
 
 func set_character_movement_target(target: Vector3) -> void:
 	character_bot.set_movement_target(target)

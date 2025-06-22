@@ -4,12 +4,14 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kgjyi"]
 
-[node name="agent" type="CharacterBody3D"]
+[node name="SimpleAgent" type="CharacterBody3D"]
 script = ExtResource("1_as04k")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0170471, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0127531, 0)
 shape = SubResource("SphereShape3D_kgjyi")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
