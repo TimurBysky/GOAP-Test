@@ -1,18 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cftfy8gabmxwd"]
+[gd_scene load_steps=4 format=3 uid="uid://cftfy8gabmxwd"]
 
 [ext_resource type="Script" uid="uid://di530ba1jxjxy" path="res://simple_agent.gd" id="1_as04k"]
+[ext_resource type="PackedScene" uid="uid://olqijwdeihxu" path="res://agent_2.tscn" id="2_df1q7"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_kgjyi"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cff10"]
+radius = 0.325102
+height = 0.859456
 
 [node name="SimpleAgent" type="CharacterBody3D"]
 script = ExtResource("1_as04k")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0170471, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0127531, 0)
-shape = SubResource("SphereShape3D_kgjyi")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267133, 0)
+shape = SubResource("CapsuleShape3D_cff10")
+
+[node name="Agent2" parent="." instance=ExtResource("2_df1q7")]
+transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 0, 0, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://olqijwdeihxu"]
+
+[ext_resource type="PackedScene" uid="uid://bmtha67oaeeu4" path="res://Agent2.glb" id="1_xle3w"]
+
+[node name="Agent2" instance=ExtResource("1_xle3w")]
+
+[node name="Skeleton3D" parent="Armature_001" index="2"]
+bones/2/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/3/rotation = Quaternion(4.21608e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/4/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/5/rotation = Quaternion(-5.76012e-08, -4.21608e-09, -0.707107, 0.707107)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
