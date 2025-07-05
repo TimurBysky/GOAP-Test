@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://m6f0waa737k6"]
+[gd_scene load_steps=8 format=3 uid="uid://m6f0waa737k6"]
 
 [ext_resource type="PackedScene" uid="uid://cftfy8gabmxwd" path="res://simple_agent.tscn" id="1_p0ybc"]
 [ext_resource type="Script" uid="uid://cemkucpr8o5tr" path="res://navigation_manager.gd" id="2_8l818"]
 [ext_resource type="Script" uid="uid://w2ovhjl15ijx" path="res://camera_3d.gd" id="3_jqgjh"]
+[ext_resource type="PackedScene" uid="uid://bogqbyn6ka1oy" path="res://box.tscn" id="4_jqgjh"]
+[ext_resource type="PackedScene" uid="uid://c4agrwv0v5c2s" path="res://delivery_point.tscn" id="5_vf5bc"]
 
 [sub_resource type="Environment" id="Environment_4mug4"]
 
@@ -58,3 +60,9 @@ character_bot_path = NodePath("../SimpleAgent")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.192439, 0.195343, -0.96167, 0.0281027, 0.978488, 0.204383, 0.980907, -0.0663567, 0.18281, -8.25271, 8.45019, 2.81912)
 script = ExtResource("3_jqgjh")
+
+[node name="Box" parent="." instance=ExtResource("4_jqgjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958814, 6.21811, -2.45718)
+
+[node name="DeliveryPoint" parent="." instance=ExtResource("5_vf5bc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -2)

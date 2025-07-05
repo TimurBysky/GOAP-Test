@@ -5,10 +5,11 @@
 [node name="Agent2" instance=ExtResource("1_xle3w")]
 
 [node name="Skeleton3D" parent="Armature_001" index="2"]
+bones/1/scale = Vector3(1, 0.901126, 1)
 bones/2/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/3/rotation = Quaternion(4.21608e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/3/rotation = Quaternion(0.247312, 0.247312, 0.662448, 0.662448)
 bones/4/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/5/rotation = Quaternion(-5.76012e-08, -4.21608e-09, -0.707107, 0.707107)
+bones/5/rotation = Quaternion(-0.188177, 0.188177, -0.681608, 0.681608)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"
