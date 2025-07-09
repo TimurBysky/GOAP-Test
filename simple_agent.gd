@@ -17,8 +17,8 @@ var isBoxDelivered = false
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
-	thinking(null)
 	area3D.body_entered.connect(thinking)
+	thinking(null)
 	animation.play("Idle")
 	
 
@@ -29,6 +29,10 @@ func thinking(body: Node3D):
 		if body.name == "Box" or body.name == "DeliveryPointbox":
 			if body.name == "Box":
 				has_box = true
+				area3D.body_entered.emit()
+			if body.name == "DeliveryPointbox":
+				has_box = false
+				isBoxDelivered = true
 				area3D.body_entered.emit()
 	if !has_box and !isBoxDelivered:
 		go_to_object(boxPos)
