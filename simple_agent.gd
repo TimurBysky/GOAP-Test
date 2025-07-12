@@ -8,7 +8,7 @@ class_name CharacterBot
 @onready var animation: AnimationPlayer = $Agent2/AnimationPlayer
 @onready var deliveryPoint = $"../DeliveryPoint"
 @onready var deliveryPointPos = $"../DeliveryPoint".position
-@onready var box = $"../Box"
+@onready var box:Node3D = $"../Box"
 @onready var boxPos = $"../Box".position
 @onready var area3D: Area3D = $Area3D
 
@@ -34,16 +34,24 @@ func thinking(body: Node3D):
 				has_box = false
 				isBoxDelivered = true
 				area3D.body_entered.emit()
+				box.queue_free()
 	if !has_box and !isBoxDelivered:
 		go_to_object(boxPos)
 	if has_box and !isBoxDelivered:
 		go_to_object(deliveryPointPos)
 	print(has_box)
 
+
+#Логика движения
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta: float):
+	
+	if has_box:
+		box.position = self.position + Vector3(0,1.2,0)
+		box.scale = Vector3(0.5,0.5,0.5)
+	
 	if navigation_agent.is_navigation_finished():
 		animation.play("Idle")
 		return
