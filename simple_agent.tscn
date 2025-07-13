@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cftfy8gabmxwd"]
+
+[ext_resource type="Script" uid="uid://di530ba1jxjxy" path="res://simple_agent.gd" id="1_as04k"]
+[ext_resource type="PackedScene" uid="uid://olqijwdeihxu" path="res://agent_2.tscn" id="2_df1q7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_df1q7"]
+size = Vector3(0.604431, 0.677734, 1.21729)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cff10"]
+radius = 0.325102
+height = 0.859456
+
+[node name="SimpleAgent" type="CharacterBody3D"]
+script = ExtResource("1_as04k")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00332642, 0.161133, -0.367432)
+shape = SubResource("BoxShape3D_df1q7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267133, 0)
+shape = SubResource("CapsuleShape3D_cff10")
+
+[node name="Agent2" parent="." instance=ExtResource("2_df1q7")]
+transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, 0, 0, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
