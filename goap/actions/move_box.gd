@@ -1,6 +1,8 @@
 extends GOAPActions
 
-func get_clazz(): return "GetBoxAction"
+class_name MoveBoxAction
+
+func get_clazz(): return "MoveBoxAction"
 
 func _predictions()->Dictionary:
 	return {}

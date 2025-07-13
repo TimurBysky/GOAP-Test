@@ -1,5 +1,7 @@
 extends GoapGoal
 
+class_name DeliverBoxGoal
+
 func get_clazz(): return "DeliverBoxGoal"
 
 func _is_valid()->bool:
