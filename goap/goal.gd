@@ -6,7 +6,7 @@ class_name GoapGoal
 func is_valid()->bool:
 	return true
 
-#Её приоритет	
+#Её приоритет
 func get_priority()->int:
 	return 1
 	

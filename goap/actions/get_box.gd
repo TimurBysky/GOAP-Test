@@ -4,7 +4,10 @@ class_name GetBoxAction
 
 func get_clazz(): return "GetBoxAction"
 
-func get_predictions()->Dictionary:
+func is_valid():
+	return WorldState.get_elements("boxes").size() > 0
+
+func get_preconditions()->Dictionary:
 	return {}
 	
 func get_effects()->Dictionary:
@@ -22,8 +25,8 @@ func perform(actor, _delta)->bool:
 	var closest_box = WorldState.get_closest_element("boxes", actor)
 	
 	if closest_box:
-		if closest_box.position.distance_to(actor.position) < 10:
+		if actor.has_box:
 			return true
 		else:
-			actor.set_movement_target(closest_box)
+			actor.set_movement_target(closest_box.position)
 	return false

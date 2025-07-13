@@ -22,7 +22,7 @@ func set_actions(actions: Array):
 #
 func get_plan(goal: GoapGoal, blackboard = {}) -> Array:
 	print("Goal: %s" % goal.get_clazz())
-	#WorldState.console_message("Goal: %s" % goal.get_clazz())
+	WorldState.console_message("Goal: %s" % goal.get_clazz())
 	var desired_state = goal.get_desired_state().duplicate()
 
 	if desired_state.is_empty():

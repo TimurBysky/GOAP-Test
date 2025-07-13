@@ -24,12 +24,22 @@ func _ready() -> void:
 		DeliverBoxGoal.new()
 	])
 	
+	var _goals = agent._goals
+	for goals in _goals:
+		print("Goal is: ", goals.get_clazz())
+		
 	add_child(agent)
 
 func taked_something(body: Node3D):
 	if body.is_in_group("boxes"):
 		has_box = true
 		box = body
+		WorldState.set_state("has_box", true)
+	if body.is_in_group("deliveryPoint"):
+		isBoxDelivered = true
+		box.queue_free()
+		WorldState.set_state("has_box", false)
+		WorldState.set_state("box_deliverd", true)
 
 
 #Логика движения

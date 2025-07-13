@@ -35,6 +35,7 @@ func get_closest_element(group_name, reference):
 
 
 func console_message(object):
-	var console = get_tree().get_nodes_in_group("console")[0] as TextEdit
-	console.text += "\n%s" % str(object)
-	console.set_caret_line(console.get_line_count())
+#	var console = get_tree().get_nodes_in_group("console")[0] as TextEdit
+	#console.text += "\n%s" % str(object)
+	#console.set_caret_line(console.get_line_count())
+	return

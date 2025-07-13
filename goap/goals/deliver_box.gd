@@ -5,7 +5,7 @@ class_name DeliverBoxGoal
 func get_clazz(): return "DeliverBoxGoal"
 
 func is_valid()->bool:
-	return WorldState.get_state("have_box", false)
+	return !WorldState.get_state("box_deliverd", false)
 	
 func priority()->int:
 	return 2
