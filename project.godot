@@ -17,6 +17,5 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-WorldState="*res://world_state.gd"
-Agent="*res://goap/agent.gd"
+WorldState="*res://goap/world/world_state.gd"
 Goap="*res://goap/goap.gd"

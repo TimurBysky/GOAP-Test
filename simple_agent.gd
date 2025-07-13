@@ -6,40 +6,30 @@ class_name CharacterBot
 @export var rotation_speed: float = 5.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var animation: AnimationPlayer = $Agent2/AnimationPlayer
-@onready var deliveryPoint = $"../DeliveryPoint"
-@onready var deliveryPointPos = $"../DeliveryPoint".position
-@onready var box:Node3D = $"../Box"
-@onready var boxPos = $"../Box".position
 @onready var area3D: Area3D = $Area3D
 
 var has_box = false
+var box: Node3D
 var isBoxDelivered = false
+
+
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
-	area3D.body_entered.connect(thinking)
-	thinking(null)
+	area3D.body_entered.connect(taked_something)
 	animation.play("Idle")
 	
+	var agent = GoapAgent.new()
+	agent.init(self, [
+		DeliverBoxGoal.new()
+	])
+	
+	add_child(agent)
 
-
-func thinking(body: Node3D):
-	if body != null:
-		print(body.name)
-		if body.name == "Box" or body.name == "DeliveryPointbox":
-			if body.name == "Box":
-				has_box = true
-				area3D.body_entered.emit()
-			if body.name == "DeliveryPointbox":
-				has_box = false
-				isBoxDelivered = true
-				area3D.body_entered.emit()
-				box.queue_free()
-	if !has_box and !isBoxDelivered:
-		go_to_object(boxPos)
-	if has_box and !isBoxDelivered:
-		go_to_object(deliveryPointPos)
-	print(has_box)
+func taked_something(body: Node3D):
+	if body.is_in_group("boxes"):
+		has_box = true
+		box = body
 
 
 #Логика движения

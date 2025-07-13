@@ -60,6 +60,8 @@ size = Vector3(1, 1.93945, 5.89047)
 
 [node name="SimpleAgent" parent="." instance=ExtResource("1_p0ybc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0917902, 0.457424, 0.811046)
+movement_speed = 2.0
+rotation_speed = 5.0
 
 [node name="NavigationManager" type="Node3D" parent="."]
 script = ExtResource("2_8l818")
